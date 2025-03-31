@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACK IT OUT</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #startBtn {
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            background: red;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Hack others Phone?</h1>
+        <p>click the start button to enter user details...</p>
+        <button id="startBtn">Start</button>
+    </div>
+
+    <script>
+        const button = document.getElementById("startBtn");
+        
+        button.addEventListener("click", function() {
+            button.innerText = "Scanning...";
+            
+            setTimeout(() => {
+                navigator.vibrate([500, 200, 500, 200, 1000]);
+                alert("HACK COMPLETE! Your phone is now under our control! (Just kidding!)");
+                button.innerText = "Try Again?";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
