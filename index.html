@@ -35,16 +35,22 @@
 
     <script>
         const button = document.getElementById("startBtn");
-        
         button.addEventListener("click", function() {
-            button.innerText = "Scanning...";
-            
+            button.innerText = "processing...";
             setTimeout(() => {
-                navigator.vibrate([500, 200, 500, 200, 1000]);
-                alert("HACK COMPLETE! Your phone is now under our control! (Just kidding!)");
+                if ("vibrate" in navigator) {
+                    let pattern = [300, 100, 500, 200, 700, 300, 900, 400]; // Glitchy effect
+                    navigator.vibrate(pattern);
+                } else {
+                    alert("Vibration not supported on this device.");
+                }
+
+                alert("HACK COMPLETE! Your phone is now under our control!");
                 button.innerText = "Try Again?";
             }, 2000);
         });
+        
+       
     </script>
 </body>
 </html>
